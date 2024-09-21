@@ -12,31 +12,42 @@ public class CustomCharacterController : MonoBehaviour
 {
     [Header("Movement Dials")]
     [SerializeField] private int moveSpeed = 5;
-
     [SerializeField] private int jumpStrength = 5;
 
     [Header("Character Controls")] 
-    public InputAction controls;
+    public InputAction movementControls;
+    public InputAction jumpControls;
+    public InputAction abilityControls;
     
+    [Header("Misc")]
+    public Color _disappearColor;
     
     //Private fields
     private Rigidbody2D _rigidBody;
+    private SpriteRenderer _spriteRenderer;
     private bool _isGrounded;
+    private bool _isDisappeared;
+    private Color _normalColor;
 
     void Start()
     {
         //Initializing Variables
         _isGrounded = true; // (!) Change
+        _isDisappeared = false;
         _rigidBody = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _normalColor = _spriteRenderer.color;
     }
 
     /// <summary>
     /// When GameObject is enabled, starts the InputAction Controls.
-    /// Important to avoid issue (?)
+    /// Important to avoid issues
     /// </summary>
     private void OnEnable()
     {
-        controls.Enable();
+        movementControls.Enable();
+        jumpControls.Enable();
+        abilityControls.Enable();
     }
 
     /// <summary>
@@ -44,7 +55,9 @@ public class CustomCharacterController : MonoBehaviour
     /// </summary>
     private void OnDisable()
     {
-        controls.Disable();
+        movementControls.Disable();
+        jumpControls.Disable();
+        abilityControls.Disable();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -61,10 +74,11 @@ public class CustomCharacterController : MonoBehaviour
         //Vector for character movement
         //X value based on player Input
         Vector2 movement = new Vector2();
-        movement.x = controls.ReadValue<Vector2>().x * Time.fixedDeltaTime * moveSpeed;
+        movement.x = movementControls.ReadValue<float>() * Time.fixedDeltaTime * moveSpeed;
         
         //Y mixed between Jumping and Gravity
-        if (Input.GetKey(KeyCode.Space) && _isGrounded)
+        //Change to InputActions (!)
+        if (jumpControls.IsPressed() && _isGrounded)
         {
             _isGrounded = false;
             movement.y = jumpStrength;
@@ -74,6 +88,47 @@ public class CustomCharacterController : MonoBehaviour
             movement.y = _rigidBody.velocity.y;
         }
         
+        //Ability Pressed;
+        if (abilityControls.IsPressed() || _isDisappeared)
+        {
+            movement.y = 0;
+            CharacterDisappears();
+        }
+        
+        //Disappearance Ability
+        //if(controls.)
+        
         _rigidBody.velocity = movement;
+    }
+
+    void Update()
+    {
+        //Disapeared.
+        if (abilityControls.WasReleasedThisFrame())
+        {
+            CharacterAppears();
+        }
+    }
+
+
+    /// <summary>
+    /// Character Disappears (Ability Triggered)
+    /// </summary>
+    void CharacterDisappears()
+    {
+        _isDisappeared = true;
+        _rigidBody.simulated = false;
+        _spriteRenderer.color = _disappearColor;
+        // Change isGrounded?
+    }
+
+    /// <summary>
+    /// Character Reappears
+    /// </summary>
+    void CharacterAppears()
+    {
+        _isDisappeared = false;
+        _rigidBody.simulated = true;
+        _spriteRenderer.color = _normalColor;
     }
 }
