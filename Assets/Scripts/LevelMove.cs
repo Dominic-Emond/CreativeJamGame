@@ -14,7 +14,7 @@ public class LevelMove : MonoBehaviour
 
     }
 
-    void Clapsing()
+    void Moving()
     {
         if (!finished)
         {
@@ -26,7 +26,7 @@ public class LevelMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Clapsing();
+        Moving();
     }
 
 }
