@@ -45,6 +45,7 @@ public class CustomCharacterController : MonoBehaviour
     private float _abilityTimeLeft;
     private Color _normalColor;
     private Image _abilityImage;
+    private GameObject _parent;
 
     void Start()
     {
@@ -57,6 +58,7 @@ public class CustomCharacterController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _normalColor = _spriteRenderer.color;
+        _parent = transform.parent.gameObject;
 
         if (uiAbility == null)
         {
@@ -173,6 +175,7 @@ public class CustomCharacterController : MonoBehaviour
         _spriteRenderer.color = _disappearColor;
         _abilityTimeLeft = abilityMaximumTime;
         SetUIAbility(false);
+        transform.SetParent(null);
     }
 
     /// <summary>
@@ -184,6 +187,7 @@ public class CustomCharacterController : MonoBehaviour
         _rigidBody.simulated = true;
         _spriteRenderer.color = _normalColor;
         _abilityLockTime = cooldownTime;
+        transform.SetParent(_parent.transform);
     }
 
     void SetUIAbility(bool available = true)

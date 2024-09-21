@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: {x: 0, y: 0, z: 0}
   moveSpeed: 1
+  player: {fileID: 0}
 --- !u!4 &92326412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
@@ -188,9 +189,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 26991707}
     m_Modifications:
+    - target: {fileID: 2283802892846181203, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_Name
       value: SolidPlatform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -250,6 +259,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 980252322}
     - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: raycastLength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: _disappearColor.a
       value: 0.39215687
       objectReference: {fileID: 0}
@@ -264,6 +277,14 @@ PrefabInstance:
     - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: _disappearColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869737335658889504, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869737335658889504, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: m_GravityScale
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -388,7 +409,7 @@ GameObject:
   - component: {fileID: 468003856}
   - component: {fileID: 468003855}
   - component: {fileID: 468003854}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlatformTri
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +635,7 @@ GameObject:
   - component: {fileID: 617738164}
   - component: {fileID: 617738163}
   - component: {fileID: 617738167}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,6 +795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: {x: 0, y: 0, z: 0}
   moveSpeed: 1
+  player: {fileID: 0}
 --- !u!4 &765896258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
@@ -981,9 +1003,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 26991707}
     m_Modifications:
+    - target: {fileID: 2283802892846181203, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_Name
       value: SolidPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1041,7 +1071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1181836940}
   - component: {fileID: 1181836939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1120,7 @@ GameObject:
   - component: {fileID: 1218014693}
   - component: {fileID: 1218014692}
   - component: {fileID: 1218014691}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlatformShort
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1310,7 +1340,7 @@ GameObject:
   - component: {fileID: 1465746692}
   - component: {fileID: 1465746691}
   - component: {fileID: 1465746690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,9 +1726,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 26991707}
     m_Modifications:
+    - target: {fileID: 2148645862329721180, guid: 65b5ac8199f3ae249b3acdb020a98d54, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2523767294684999386, guid: 65b5ac8199f3ae249b3acdb020a98d54, type: 3}
       propertyPath: m_Name
       value: SolidPlatformShort
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523767294684999386, guid: 65b5ac8199f3ae249b3acdb020a98d54, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4743549946917986320, guid: 65b5ac8199f3ae249b3acdb020a98d54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1753,9 +1791,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 26991707}
     m_Modifications:
+    - target: {fileID: 2283802892846181203, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_Name
       value: SolidPlatform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_LocalPosition.x
