@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -13,6 +14,11 @@ public class CustomCharacterController : MonoBehaviour
     [Header("Movement Dials")]
     [SerializeField] private int moveSpeed = 5;
     [SerializeField] private int jumpStrength = 5;
+
+    [Header("Ability Parameters")] 
+    public float abilityMaximumTime = 2f;
+
+    public float cooldownTime = 2f;
 
     [Header("Character Controls")] 
     public InputAction movementControls;
@@ -27,6 +33,8 @@ public class CustomCharacterController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private bool _isGrounded;
     private bool _isDisappeared;
+    private float _abilityLockTime;
+    private float _abilityTimeLeft;
     private Color _normalColor;
 
     void Start()
@@ -34,6 +42,8 @@ public class CustomCharacterController : MonoBehaviour
         //Initializing Variables
         _isGrounded = true; // (!) Change
         _isDisappeared = false;
+        _abilityLockTime = 0f;
+        _abilityTimeLeft = 0f;
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _normalColor = _spriteRenderer.color;
@@ -88,11 +98,10 @@ public class CustomCharacterController : MonoBehaviour
             movement.y = _rigidBody.velocity.y;
         }
         
-        //Ability Pressed;
-        if (abilityControls.IsPressed() || _isDisappeared)
+        //Ability Pressed. Overwrites Everything.
+        if (_isDisappeared)
         {
-            movement.y = 0;
-            CharacterDisappears();
+            movement = new Vector2(0, 0);
         }
         
         //Disappearance Ability
@@ -103,11 +112,26 @@ public class CustomCharacterController : MonoBehaviour
 
     void Update()
     {
-        //Disapeared.
-        if (abilityControls.WasReleasedThisFrame())
+        if (_abilityLockTime > 0f)
+        {
+            _abilityLockTime = math.max(_abilityLockTime - Time.deltaTime, 0f);
+        }
+
+        if (_abilityTimeLeft > 0f)
+        {
+            _abilityTimeLeft = math.max(_abilityTimeLeft - Time.deltaTime, 0f);
+        }
+        
+        // Character Appears/Disappears
+        if (abilityControls.WasPressedThisFrame() && Mathf.Approximately(_abilityLockTime, 0f) && !_isDisappeared)
+        {
+            CharacterDisappears();
+        }
+        else if ((abilityControls.WasReleasedThisFrame() || Mathf.Approximately(_abilityTimeLeft, 0f)) && _isDisappeared)
         {
             CharacterAppears();
         }
+        
     }
 
 
@@ -119,7 +143,7 @@ public class CustomCharacterController : MonoBehaviour
         _isDisappeared = true;
         _rigidBody.simulated = false;
         _spriteRenderer.color = _disappearColor;
-        // Change isGrounded?
+        _abilityTimeLeft = abilityMaximumTime;
     }
 
     /// <summary>
@@ -130,5 +154,6 @@ public class CustomCharacterController : MonoBehaviour
         _isDisappeared = false;
         _rigidBody.simulated = true;
         _spriteRenderer.color = _normalColor;
+        _abilityLockTime = cooldownTime;
     }
 }
