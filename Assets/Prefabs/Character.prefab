@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 600
   jumpStrength: 23
-  raycastLength: 0.9
+  raycastLength: 1
   abilityMaximumTime: 2
   cooldownTime: 2
   uiAbility: {fileID: 0}
@@ -234,4 +234,4 @@ MonoBehaviour:
       m_Action: Ability Controls
       m_Flags: 0
     m_Flags: 0
-  _disappearColor: {r: 0, g: 0, b: 0, a: 0}
+  _disappearColor: {r: 1, g: 1, b: 1, a: 0.39215687}

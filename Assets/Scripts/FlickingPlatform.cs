@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class FlickingPlatform : MonoBehaviour
 {
+    private SpriteRenderer spRend;
     [SerializeField] private float flickeringTime = 1.5f;
 
     [SerializeField] private bool disappered = false;
@@ -11,7 +13,7 @@ public class FlickingPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        spRend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,16 +23,16 @@ public class FlickingPlatform : MonoBehaviour
 
         if (!disappered && timer >= flickeringTime)
         {
-            gameObject.GetComponent<Renderer>().enabled = false;
-            gameObject.GetComponent<Rigidbody2D>().simulated = false;
+            spRend.enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             disappered = true;
             timer = 0.0f;
         }
 
         if(disappered && timer >= flickeringTime)
         {
-            gameObject.GetComponent<Renderer>().enabled = true;
-            gameObject.GetComponent<Rigidbody2D>().simulated = true;
+            spRend.enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             disappered = false;
             timer = 0.0f;
         }

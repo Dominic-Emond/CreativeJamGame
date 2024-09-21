@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1275954728551843131}
   - component: {fileID: 5790572908793171990}
   - component: {fileID: 4882712127749737553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlatformShort
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4743549946917986320}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SolidPlatformShort
   m_TagString: Untagged
   m_Icon: {fileID: 0}

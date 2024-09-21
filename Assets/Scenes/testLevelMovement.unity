@@ -159,6 +159,7 @@ Transform:
   - {fileID: 92326412}
   - {fileID: 1410048151}
   - {fileID: 1779051908}
+  - {fileID: 384918950}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &26991708
@@ -175,7 +176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: {x: 0, y: 0, z: 0}
   moveSpeed: 1
-  player: {fileID: 0}
 --- !u!4 &92326412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
@@ -252,7 +252,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 26991707}
     m_Modifications:
     - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: uiAbility
@@ -288,15 +288,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14001465
+      value: -6.799575
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76
+      value: -1.6651678
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -6.0067034
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -397,6 +397,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ebb0d14a0fde2a48bcb1ce1d310a5ef, type: 3}
+--- !u!4 &384918950 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+  m_PrefabInstance: {fileID: 321745075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &468003852
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +800,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: {x: 0, y: 0, z: 0}
   moveSpeed: 1
-  player: {fileID: 0}
 --- !u!4 &765896258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
@@ -1853,7 +1857,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 853549947}
-  - {fileID: 321745075}
   - {fileID: 1074119075}
   - {fileID: 617738166}
   - {fileID: 26991707}
