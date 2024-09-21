@@ -6,7 +6,7 @@ public class LevelMove : MonoBehaviour
 {
    
     [SerializeField] private Vector3 location;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed = 1;
     bool finished = false;
     // Start is called before the first frame update
     void Start()
