@@ -33,7 +33,7 @@ public class FragilePlatformTrigger : MonoBehaviour
         if(timer > clapsingTime)
         {
             //Destroy rigid body of the platform
-            Destroy(gameObject); //test 
+            Destroy(gameObject.transform.parent.gameObject); //test     
         }
     }
 }
