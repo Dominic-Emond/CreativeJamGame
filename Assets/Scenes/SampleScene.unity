@@ -482,22 +482,6 @@ PrefabInstance:
       propertyPath: uiAbility
       value: 
       objectReference: {fileID: 1927151288}
-    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-      propertyPath: _disappearColor.a
-      value: 0.39215687
-      objectReference: {fileID: 0}
-    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-      propertyPath: _disappearColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-      propertyPath: _disappearColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-      propertyPath: _disappearColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.5675373
@@ -542,21 +526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 8166731264445947442, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8166731264445947442, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7132968232739950680, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1613982904}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
 --- !u!1 &812528558
 GameObject:
@@ -693,32 +666,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1613982899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7132968232739950680, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-  m_PrefabInstance: {fileID: 800223731}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1613982904
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613982899}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53e2eef3151642348b512a816ba18a85, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1927151288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7509134669519256533, guid: 06449258dffd36c418adf9d67a1682ac, type: 3}
@@ -778,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761978568084055601, guid: 9e0fbf2f5bb82da488334757ac1578fe, type: 3}
       propertyPath: orthographic size
-      value: 7.984375
+      value: 11.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
