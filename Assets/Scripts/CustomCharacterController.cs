@@ -15,6 +15,7 @@ public class CustomCharacterController : MonoBehaviour
     [Header("Movement Dials")]
     [SerializeField] private int moveSpeed = 5;
     [SerializeField] private int jumpStrength = 5;
+    [SerializeField] private float raycastLength = 0.2f;
 
     [Header("Ability Parameters")] 
     public float abilityMaximumTime = 2f;
@@ -88,27 +89,18 @@ public class CustomCharacterController : MonoBehaviour
         abilityControls.Disable();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            _isGrounded = true;
-        }
-    }
-
-
     void FixedUpdate()
     {
         //Vector for character movement
         //X value based on player Input
         Vector2 movement = new Vector2();
         movement.x = movementControls.ReadValue<float>() * Time.fixedDeltaTime * moveSpeed;
+        _isGrounded = IsGrounded();
         
         //Y mixed between Jumping and Gravity
         //Change to InputActions (!)
         if (jumpControls.IsPressed() && _isGrounded && _hasReleasedJump)
         {
-            _isGrounded = false;
             _hasReleasedJump = false;
             movement.y = jumpStrength;
         }
@@ -154,6 +146,20 @@ public class CustomCharacterController : MonoBehaviour
             CharacterAppears();
         }
         
+    }
+
+    /// <summary>
+    /// Raycast to check if character is grounded.
+    /// </summary>
+    bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, raycastLength, LayerMask.GetMask("Ground"));
+
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        return false;
     }
 
 
