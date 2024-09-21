@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// Character Controller, takes care of the player movement.
@@ -17,8 +18,8 @@ public class CustomCharacterController : MonoBehaviour
 
     [Header("Ability Parameters")] 
     public float abilityMaximumTime = 2f;
-
     public float cooldownTime = 2f;
+    public GameObject uiAbility;
 
     [Header("Character Controls")] 
     public InputAction movementControls;
@@ -29,24 +30,41 @@ public class CustomCharacterController : MonoBehaviour
     public Color _disappearColor;
     
     //Private fields
+    //Components
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
+    
+    //Jump
     private bool _isGrounded;
+    private bool _hasReleasedJump;
+    
+    //Ability
     private bool _isDisappeared;
     private float _abilityLockTime;
     private float _abilityTimeLeft;
     private Color _normalColor;
+    private Image _abilityImage;
 
     void Start()
     {
         //Initializing Variables
-        _isGrounded = true; // (!) Change
+        _isGrounded = true;
+        _hasReleasedJump = true;
         _isDisappeared = false;
         _abilityLockTime = 0f;
         _abilityTimeLeft = 0f;
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _normalColor = _spriteRenderer.color;
+
+        if (uiAbility == null)
+        {
+            Debug.LogWarning("No UI attached to character!");
+        }
+        else
+        {
+            _abilityImage = uiAbility.GetComponent<Image>();
+        }
     }
 
     /// <summary>
@@ -88,13 +106,15 @@ public class CustomCharacterController : MonoBehaviour
         
         //Y mixed between Jumping and Gravity
         //Change to InputActions (!)
-        if (jumpControls.IsPressed() && _isGrounded)
+        if (jumpControls.IsPressed() && _isGrounded && _hasReleasedJump)
         {
             _isGrounded = false;
+            _hasReleasedJump = false;
             movement.y = jumpStrength;
         }
         else
         {
+            if (!jumpControls.IsPressed()) _hasReleasedJump = true;
             movement.y = _rigidBody.velocity.y;
         }
         
@@ -112,14 +132,16 @@ public class CustomCharacterController : MonoBehaviour
 
     void Update()
     {
-        if (_abilityLockTime > 0f)
+        if (!Mathf.Approximately(_abilityLockTime, 0f))
         {
             _abilityLockTime = math.max(_abilityLockTime - Time.deltaTime, 0f);
+            if (Mathf.Approximately(_abilityLockTime, 0f)) SetUIAbility();
         }
 
-        if (_abilityTimeLeft > 0f)
+        if (!Mathf.Approximately(_abilityTimeLeft, 0f))
         {
             _abilityTimeLeft = math.max(_abilityTimeLeft - Time.deltaTime, 0f);
+            
         }
         
         // Character Appears/Disappears
@@ -144,6 +166,7 @@ public class CustomCharacterController : MonoBehaviour
         _rigidBody.simulated = false;
         _spriteRenderer.color = _disappearColor;
         _abilityTimeLeft = abilityMaximumTime;
+        SetUIAbility(false);
     }
 
     /// <summary>
@@ -155,5 +178,11 @@ public class CustomCharacterController : MonoBehaviour
         _rigidBody.simulated = true;
         _spriteRenderer.color = _normalColor;
         _abilityLockTime = cooldownTime;
+    }
+
+    void SetUIAbility(bool available = true)
+    {
+        if (available) _abilityImage.color = new Color(1f, 1f, 1f, 1f);
+        else _abilityImage.color = new Color(1f, 1f, 1f, 0f);
     }
 }
