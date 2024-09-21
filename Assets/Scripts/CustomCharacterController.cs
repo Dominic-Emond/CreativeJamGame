@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -34,6 +30,7 @@ public class CustomCharacterController : MonoBehaviour
     //Components
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     
     //Jump
     private bool _isGrounded;
@@ -46,6 +43,9 @@ public class CustomCharacterController : MonoBehaviour
     private Color _normalColor;
     private Image _abilityImage;
     private GameObject _parent;
+    
+    //Animation
+    private bool _isFlipped;
 
     void Start()
     {
@@ -57,8 +57,10 @@ public class CustomCharacterController : MonoBehaviour
         _abilityTimeLeft = 0f;
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
         _normalColor = _spriteRenderer.color;
         _parent = transform.parent.gameObject;
+        _isFlipped = false;
 
         if (uiAbility == null)
         {
@@ -98,11 +100,25 @@ public class CustomCharacterController : MonoBehaviour
         Vector2 movement = new Vector2();
         movement.x = movementControls.ReadValue<float>() * Time.fixedDeltaTime * moveSpeed;
         _isGrounded = IsGrounded();
+        _animator.SetFloat("Speed", movementControls.ReadValue<float>());
+
+        //Flipping character if he is moving to the left.
+        if (movementControls.ReadValue<float>() > 0f && _isFlipped)
+        {
+            _spriteRenderer.flipX = false;
+            _isFlipped = false;
+        }
+        else if (movementControls.ReadValue<float>() < 0f && !_isFlipped)
+        {
+            _spriteRenderer.flipX = true;
+            _isFlipped = true;
+        }
         
         //Y mixed between Jumping and Gravity
         //Change to InputActions (!)
         if (jumpControls.IsPressed() && _isGrounded && _hasReleasedJump)
         {
+            _animator.SetBool("Jumping", true);
             _hasReleasedJump = false;
             movement.y = jumpStrength;
         }
@@ -126,6 +142,11 @@ public class CustomCharacterController : MonoBehaviour
 
     void Update()
     {
+        if (_rigidBody.velocity.y < 0)
+        {
+            _animator.SetBool("Falling", true);
+        }
+        
         if (!Mathf.Approximately(_abilityLockTime, 0f))
         {
             _abilityLockTime = math.max(_abilityLockTime - Time.deltaTime, 0f);
@@ -159,6 +180,8 @@ public class CustomCharacterController : MonoBehaviour
 
         if (hit.collider != null)
         {
+            _animator.SetBool("Jumping", false);
+            _animator.SetBool("Falling", false);
             return true;
         }
         return false;
