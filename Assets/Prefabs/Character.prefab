@@ -165,9 +165,13 @@ MonoBehaviour:
   moveSpeed: 400
   jumpStrength: 19
   raycastLength: 1
+  dampingFactor: 0.5
   abilityMaximumTime: 2
   cooldownTime: 2
   uiAbility: {fileID: 0}
+  dashSpeed: 2
+  dashDuration: 0.5
+  dashCooldownTime: 2
   movementControls:
     m_Name: Movement Controls
     m_Type: 0
@@ -234,6 +238,56 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Ability Controls
       m_Flags: 0
+    m_Flags: 0
+  dashControls:
+    m_Name: Dash Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7153de3b-e42e-405a-8f5f-76cfdcce4c9e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c80552f3-1c12-4777-b386-66605e901d7f
+      m_Path: <Keyboard>/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash Controls
+      m_Flags: 0
+    m_Flags: 0
+  dashVerticalControls:
+    m_Name: Dash Vertical Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1ed7d069-9ccf-4c52-8e1e-9a225a4fbb70
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: WS
+      m_Id: 8add0706-3f09-406a-92de-81a68918379e
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash Vertical Controls
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 67992829-e1be-4230-8fd6-ab4c9ccf0925
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash Vertical Controls
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 8425cb9e-9640-468d-9190-3e93b0f6767f
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash Vertical Controls
+      m_Flags: 8
     m_Flags: 0
   _disappearColor: {r: 1, g: 1, b: 1, a: 0.39215687}
 --- !u!95 &1367781641374257903
