@@ -410,6 +410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 7132968232739950680, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3488,7 +3492,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.9998406
+    width: 0.99905044
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
