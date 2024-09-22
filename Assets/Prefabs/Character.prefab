@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2221722c152d09c4a9578f13bba3caa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 500
-  jumpStrength: 20
+  moveSpeed: 400
+  jumpStrength: 19
   raycastLength: 1
   abilityMaximumTime: 2
   cooldownTime: 2
