@@ -121,7 +121,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.025}
-  m_Size: {x: 1, y: 1.4}
+  m_Size: {x: 0.8, y: 1.4}
   m_Direction: 0
 --- !u!50 &2869737335658889504
 Rigidbody2D:
@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2221722c152d09c4a9578f13bba3caa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 600
-  jumpStrength: 23
+  moveSpeed: 500
+  jumpStrength: 20
   raycastLength: 1
   abilityMaximumTime: 2
   cooldownTime: 2
