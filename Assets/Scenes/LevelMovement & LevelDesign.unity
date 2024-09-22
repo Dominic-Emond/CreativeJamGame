@@ -418,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_LocalScale.x
@@ -480,6 +480,10 @@ PrefabInstance:
     - target: {fileID: 7813484195316371008, guid: 7ebb0d14a0fde2a48bcb1ce1d310a5ef, type: 3}
       propertyPath: m_Name
       value: FragilePlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813484195316371008, guid: 7ebb0d14a0fde2a48bcb1ce1d310a5ef, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8006841533953943000, guid: 7ebb0d14a0fde2a48bcb1ce1d310a5ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1119,7 +1123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2523767294684999386, guid: 65b5ac8199f3ae249b3acdb020a98d54, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4743549946917986320, guid: 65b5ac8199f3ae249b3acdb020a98d54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1386,6 +1390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SolidPlatform (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.83
@@ -1490,7 +1498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 628494532636780694, guid: dba1a3c5760e2ed4a82cda1feb385872, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1717,7 +1725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2523767294684999386, guid: 65b5ac8199f3ae249b3acdb020a98d54, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4743549946917986320, guid: 65b5ac8199f3ae249b3acdb020a98d54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1778,7 +1786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3504931063706367025, guid: ce17188d9648bc048bc88780e208f157, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6071047228753409608, guid: ce17188d9648bc048bc88780e208f157, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1844,6 +1852,10 @@ PrefabInstance:
     - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_Name
       value: SolidPlatform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616735491517171631, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3206528402647497039, guid: 042301d8884e3e548a0b215f93324d58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1942,6 +1954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 3647998098261373559, guid: 3d91a8e8302c25349b9ff503448b2ed6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1998,6 +2014,10 @@ PrefabInstance:
     - target: {fileID: 6538562385255685266, guid: bfc9891cf85e49c47980e49aa4c9f07f, type: 3}
       propertyPath: m_Name
       value: SolidPlatformTri
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538562385255685266, guid: bfc9891cf85e49c47980e49aa4c9f07f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

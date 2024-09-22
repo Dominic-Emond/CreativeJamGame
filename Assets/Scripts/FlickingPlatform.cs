@@ -30,7 +30,7 @@ public class FlickingPlatform : MonoBehaviour
         if (!open && timer >= moveTime)
         {
             //spRend.enabled = false; //for flicking platform
-            //gameObject.GetComponent<BoxCollider2D>().enabled = false; no need to set to false. Used dynamic collider
+            gameObject.GetComponent<BoxCollider2D>().enabled = false; //x no need to set to false. Used dynamic collider
             open = true;
             timer = 0.0f;
         }
@@ -38,7 +38,7 @@ public class FlickingPlatform : MonoBehaviour
         if(open && timer >= moveTime)
         {
             //spRend.enabled = true;
-            //gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             open = false;
             timer = 0.0f;
         }
