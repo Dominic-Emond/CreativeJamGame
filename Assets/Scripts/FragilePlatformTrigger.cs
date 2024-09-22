@@ -8,7 +8,7 @@ public class FragilePlatformTrigger : MonoBehaviour
 {
     [SerializeField] private float clapsingTime;
     [SerializeField] public bool triggered = false;
-    
+    [SerializeField] private ParticleSystem particles;
 
     private float timer;
     // Start is called before the first frame update
@@ -19,6 +19,7 @@ public class FragilePlatformTrigger : MonoBehaviour
         {
             triggered = true;
         }
+        particles.Play();
     }
     void Start()
     {

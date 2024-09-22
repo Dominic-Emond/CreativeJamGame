@@ -10,9 +10,11 @@ public class FlickingPlatform : MonoBehaviour
 
     [SerializeField] private bool disappered = false;
     [SerializeField] private float timer = 0.0f;
+    [SerializeField] private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         spRend = GetComponent<SpriteRenderer>();
     }
 
