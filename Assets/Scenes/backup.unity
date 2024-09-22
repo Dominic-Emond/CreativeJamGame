@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &16214804 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+  m_PrefabInstance: {fileID: 321745075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &26991706
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +159,7 @@ Transform:
   m_Children:
   - {fileID: 605756314}
   - {fileID: 124343625}
+  - {fileID: 16214804}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &26991708
@@ -311,19 +317,111 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 26991707}
     m_Modifications:
     - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: uiAbility
       value: 
       objectReference: {fileID: 980252322}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashControls.m_Name
+      value: Dash Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_Name
+      value: Dash Vertical Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashControls.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashControls.m_SingletonActionBindings.Array.data[0].m_Id
+      value: c80552f3-1c12-4777-b386-66605e901d7f
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashControls.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/q
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashControls.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Dash Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 8add0706-3f09-406a-92de-81a68918379e
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 67992829-e1be-4230-8fd6-ab4c9ccf0925
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[2].m_Id
+      value: 8425cb9e-9640-468d-9190-3e93b0f6767f
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[0].m_Name
+      value: WS
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[0].m_Path
+      value: 1DAxis
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[1].m_Name
+      value: negative
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Keyboard>/s
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[2].m_Name
+      value: positive
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[2].m_Path
+      value: <Keyboard>/w
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[0].m_Flags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[1].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[2].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Dash Vertical Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Dash Vertical Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
+      propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.data[2].m_Action
+      value: Dash Vertical Controls
+      objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14001465
+      value: -0.89
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2125001
+      value: -1.26
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13574,8 +13672,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0.9990066
+    height: 0.9990918
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -21113,5 +21211,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1930552700}
   - {fileID: 1074119075}
-  - {fileID: 321745075}
   - {fileID: 26991707}

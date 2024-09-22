@@ -12,16 +12,24 @@ public class CustomCharacterController : MonoBehaviour
     [SerializeField] private int moveSpeed = 5;
     [SerializeField] private int jumpStrength = 5;
     [SerializeField] private float raycastLength = 0.2f;
+    [SerializeField] private float dampingFactor = 0.5f;
 
     [Header("Ability Parameters")] 
     public float abilityMaximumTime = 2f;
     public float cooldownTime = 2f;
     public GameObject uiAbility;
+    
+    [Header("Dash")]
+    public float dashSpeed = 2f;
+    public float dashDuration = 1f;
+    public float dashCooldownTime = 2f;
 
     [Header("Character Controls")] 
     public InputAction movementControls;
     public InputAction jumpControls;
     public InputAction abilityControls;
+    public InputAction dashControls;
+    public InputAction dashVerticalControls;
     
     [Header("Misc")]
     public Color _disappearColor;
@@ -31,6 +39,7 @@ public class CustomCharacterController : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
+    private Collider2D _collider;
     
     //Jump
     private bool _isGrounded;
@@ -43,6 +52,13 @@ public class CustomCharacterController : MonoBehaviour
     private Color _normalColor;
     private Image _abilityImage;
     private GameObject _parent;
+    private float _gravity;
+    
+    //Dash
+    private float _dashLockTime = 0f;
+    private float _dashTimeLeft = 0f;
+    private bool _isDashing = false;
+    private Vector2 _dashMovement;
     
     //Animation
     private bool _isFlipped;
@@ -58,9 +74,11 @@ public class CustomCharacterController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _collider = GetComponent<Collider2D>();
         _normalColor = _spriteRenderer.color;
         _parent = transform.parent.gameObject;
         _isFlipped = false;
+        _gravity = _rigidBody.gravityScale;
 
         if (uiAbility == null)
         {
@@ -81,6 +99,8 @@ public class CustomCharacterController : MonoBehaviour
         movementControls.Enable();
         jumpControls.Enable();
         abilityControls.Enable();
+        dashControls.Enable();
+        dashVerticalControls.Enable();
     }
 
     /// <summary>
@@ -91,6 +111,8 @@ public class CustomCharacterController : MonoBehaviour
         movementControls.Disable();
         jumpControls.Disable();
         abilityControls.Disable();
+        dashControls.Disable();
+        dashVerticalControls.Disable();
     }
 
     void FixedUpdate()
@@ -98,10 +120,20 @@ public class CustomCharacterController : MonoBehaviour
         //Vector for character movement
         //X value based on player Input
         Vector2 movement = new Vector2();
-        movement.x = movementControls.ReadValue<float>() * Time.fixedDeltaTime * moveSpeed;
+
+        if (!Mathf.Approximately(movementControls.ReadValue<float>(), 0f))
+        {
+            movement.x = movementControls.ReadValue<float>() * Time.fixedDeltaTime * moveSpeed;
+        }
+        else //Damping
+        {
+            movement.x = _rigidBody.velocity.x * Mathf.Pow(dampingFactor, Time.fixedDeltaTime);
+        }
+        
         _isGrounded = IsGrounded();
         _animator.SetFloat("Speed", movementControls.ReadValue<float>());
-
+        
+        
         //Flipping character if he is moving to the left.
         if (movementControls.ReadValue<float>() > 0f && _isFlipped)
         {
@@ -128,8 +160,21 @@ public class CustomCharacterController : MonoBehaviour
             movement.y = _rigidBody.velocity.y;
         }
         
-        //Ability Pressed. Overwrites Everything.
-        if (_isDisappeared)
+        // Dash
+        if (_isDisappeared && dashControls.IsPressed() && Mathf.Approximately(_dashLockTime, 0f) && !_isDashing)
+        {
+            _isDashing = true;
+            _dashTimeLeft = dashDuration;
+            _dashMovement.x = movement.x * dashSpeed;
+            _dashMovement.y = dashVerticalControls.ReadValue<float>() * Time.fixedDeltaTime * moveSpeed * dashSpeed;
+            
+        }
+
+        if (_isDashing)
+        {
+            movement = _dashMovement;
+        }
+        else if (_isDisappeared) //Ability Pressed. Overwrites Everything (Except Dash)
         {
             movement = new Vector2(0, 0);
         }
@@ -158,17 +203,31 @@ public class CustomCharacterController : MonoBehaviour
             _abilityTimeLeft = math.max(_abilityTimeLeft - Time.deltaTime, 0f);
             
         }
+
+        if (!Mathf.Approximately(_dashLockTime, 0f))
+        {
+            _dashLockTime = math.max(_dashLockTime - Time.deltaTime, 0f);
+        }
+        
+        if (!Mathf.Approximately(_dashTimeLeft, 0f))
+        {
+            _dashTimeLeft = math.max(_dashTimeLeft - Time.deltaTime, 0f);
+            if (Mathf.Approximately(_dashTimeLeft, 0f))
+            {
+                _isDashing = false;
+                _dashLockTime = dashCooldownTime;
+            }
+        }
         
         // Character Appears/Disappears
         if (abilityControls.WasPressedThisFrame() && Mathf.Approximately(_abilityLockTime, 0f) && !_isDisappeared)
         {
             CharacterDisappears();
         }
-        else if ((abilityControls.WasReleasedThisFrame() || Mathf.Approximately(_abilityTimeLeft, 0f)) && _isDisappeared)
+        else if ((abilityControls.WasReleasedThisFrame() || Mathf.Approximately(_abilityTimeLeft, 0f)) && _isDisappeared && !_isDashing)
         {
             CharacterAppears();
         }
-        
     }
 
     /// <summary>
@@ -194,7 +253,9 @@ public class CustomCharacterController : MonoBehaviour
     void CharacterDisappears()
     {
         _isDisappeared = true;
-        _rigidBody.simulated = false;
+        //_rigidBody.simulated = false;
+        _collider.enabled = false;
+        _rigidBody.gravityScale = 0f;
         _spriteRenderer.color = _disappearColor;
         _abilityTimeLeft = abilityMaximumTime;
         SetUIAbility(false);
@@ -207,7 +268,9 @@ public class CustomCharacterController : MonoBehaviour
     void CharacterAppears()
     {
         _isDisappeared = false;
-        _rigidBody.simulated = true;
+        //_rigidBody.simulated = true;
+        _collider.enabled = true;
+        _rigidBody.gravityScale = _gravity;
         _spriteRenderer.color = _normalColor;
         _abilityLockTime = cooldownTime;
         transform.SetParent(_parent.transform);
