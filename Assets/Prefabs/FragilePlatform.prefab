@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7144082585637694243}
   - component: {fileID: 8187523343162620631}
   - component: {fileID: 4846133676085597756}
-  - component: {fileID: 4234406455281390877}
   - component: {fileID: 5559874671318611683}
   - component: {fileID: 3804543296620143630}
   m_Layer: 6
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 516102088902758732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.86, y: -1.5349998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,33 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.25}
   m_EdgeRadius: 0
---- !u!50 &4234406455281390877
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516102088902758732}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!95 &5559874671318611683
 Animator:
   serializedVersion: 5
@@ -5037,7 +5009,6 @@ GameObject:
   - component: {fileID: 7492791893570563446}
   - component: {fileID: 5350604410524409503}
   - component: {fileID: 4532568680920273311}
-  - component: {fileID: 2387979504227867327}
   m_Layer: 0
   m_Name: TriggerArea
   m_TagString: Untagged
@@ -5054,7 +5025,7 @@ Transform:
   m_GameObject: {fileID: 2168348198034495590}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.025000006, z: 0}
+  m_LocalPosition: {x: -1.86, y: -1.19, z: 0}
   m_LocalScale: {x: 1, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5124,7 +5095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7003824c20e5ae040bcd5096df359050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clapsingTime: 2
+  clapsingTime: 1.35
   triggered: 0
   particles: {fileID: 8051597146096431557}
 --- !u!61 &4532568680920273311
@@ -5172,27 +5143,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &2387979504227867327
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2168348198034495590}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a2771436470fa854b913a55ae7ff9849, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7813484195316371008
 GameObject:
   m_ObjectHideFlags: 0

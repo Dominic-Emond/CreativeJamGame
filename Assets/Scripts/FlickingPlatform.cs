@@ -6,9 +6,9 @@ using UnityEngine.Tilemaps;
 public class FlickingPlatform : MonoBehaviour
 {
     private SpriteRenderer spRend;
-    [SerializeField] private float flickeringTime = 1.5f;
+    [SerializeField] private float moveTime = 1.5f;
 
-    [SerializeField] private bool disappered = false;
+    [SerializeField] private bool open = false;
     [SerializeField] private float timer = 0.0f;
     [SerializeField] private Animator animator;
     // Start is called before the first frame update
@@ -17,27 +17,31 @@ public class FlickingPlatform : MonoBehaviour
         animator = GetComponent<Animator>();
         spRend = GetComponent<SpriteRenderer>();
     }
+    void animatorSet()
+    {
+        animator.SetBool("open", open);
+    }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
 
-        if (!disappered && timer >= flickeringTime)
+        if (!open && timer >= moveTime)
         {
-            spRend.enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            disappered = true;
+            //spRend.enabled = false; //for flicking platform
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false; no need to set to false. Used dynamic collider
+            open = true;
             timer = 0.0f;
         }
 
-        if(disappered && timer >= flickeringTime)
+        if(open && timer >= moveTime)
         {
-            spRend.enabled = true;
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            disappered = false;
+            //spRend.enabled = true;
+            //gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            open = false;
             timer = 0.0f;
         }
-
+        animatorSet();
     }
 }
