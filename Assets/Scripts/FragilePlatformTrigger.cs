@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FragilePlatformTrigger : MonoBehaviour
 {
     [SerializeField] private float clapsingTime;
-    [SerializeField] private bool triggered = false;
+    [SerializeField] public bool triggered = false;
+    
+
     private float timer;
     // Start is called before the first frame update
 
