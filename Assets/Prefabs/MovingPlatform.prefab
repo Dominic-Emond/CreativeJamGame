@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2876040277719269165}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MovingPlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 4514287197212528169}
   - component: {fileID: 2014765311642226987}
   - component: {fileID: 7756256861412576304}
-  m_Layer: 0
+  - component: {fileID: 4087110964788343810}
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,10 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movedDistance: 0
-  moveSpeed: 3
-  maximumMovingDistance: 5
-  moveHorizontally: 0
-  moveVertically: 1
+  moveSpeed: 2
+  maximumMovingDistance: 2.5
+  moveHorizontally: 1
+  moveVertically: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!61 &7756256861412576304
 BoxCollider2D:
@@ -181,3 +182,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &4087110964788343810
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646205692527997759}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3979c0065bd724141a33ec844f2ecc33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
