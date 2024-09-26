@@ -81,11 +81,11 @@ public class FlickingPlatform : MonoBehaviour
 
     void setPlatformCollider()
     {
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        gameObject.GetComponent<PolygonCollider2D>().enabled = true;
     }
 
     void removePlatformCollider() 
     { 
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<PolygonCollider2D>().enabled = false;
     }
 }

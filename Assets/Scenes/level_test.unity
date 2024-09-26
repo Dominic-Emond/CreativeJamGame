@@ -316,10 +316,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 980252322}
     - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
-      propertyPath: dashDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 138339721669219045, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: dashControls.m_Name
       value: Dash Controls
       objectReference: {fileID: 0}
@@ -413,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.26
+      value: -6.34
       objectReference: {fileID: 0}
     - target: {fileID: 5680456885808148212, guid: 238a285f04d6fd74bbb826e87676a0dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4619,7 +4615,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 1
+    height: 0.99973494
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

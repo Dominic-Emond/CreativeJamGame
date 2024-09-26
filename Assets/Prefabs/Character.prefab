@@ -166,10 +166,10 @@ MonoBehaviour:
   jumpStrength: 19
   raycastLength: 1
   dampingFactor: 0.5
-  abilityMaximumTime: 2
+  abilityMaximumTime: 5
   cooldownTime: 2
   uiAbility: {fileID: 0}
-  dashSpeed: 2
+  dashSpeed: 5
   dashDuration: 0.5
   dashCooldownTime: 2
   movementControls:
