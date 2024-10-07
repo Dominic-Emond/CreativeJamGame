@@ -33,6 +33,38 @@ Preset:
     value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: raycastLength
+    value: 0.2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dampingFactor
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: abilityMaximumTime
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cooldownTime
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: uiAbility
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashSpeed
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashDuration
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashCooldownTime
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: movementControls.m_Name
     value: Movement Controls
     objectReference: {fileID: 0}
@@ -286,6 +318,70 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: abilityControls.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashControls.m_Name
+    value: Dash Controls
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashControls.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashControls.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashControls.m_Id
+    value: b2ecfdb3-3451-413c-9073-fe5ceb7eb2c8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashControls.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashControls.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashControls.m_SingletonActionBindings.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashControls.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashVerticalControls.m_Name
+    value: Dash Vertical Controls
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashVerticalControls.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashVerticalControls.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashVerticalControls.m_Id
+    value: 77a8908a-fbd4-40da-9d42-5b1f2a858cc8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashVerticalControls.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashVerticalControls.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashVerticalControls.m_SingletonActionBindings.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: dashVerticalControls.m_Flags
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
